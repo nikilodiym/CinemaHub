@@ -8,19 +8,25 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Test\\.nuget\\packages\\": {}
+    "C:\\Users\\пк\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Test\\RiderProjects\\CinemaHub\\CinemaServer\\CinemaServer.csproj",
+      "projectUniqueName": "E:\\VS\\RiderProjects\\CinemaHub\\CinemaServer\\CinemaServer.csproj",
       "projectName": "CinemaServer",
-      "projectPath": "C:\\Users\\Test\\RiderProjects\\CinemaHub\\CinemaServer\\CinemaServer.csproj",
-      "packagesPath": "C:\\Users\\Test\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Test\\RiderProjects\\CinemaHub\\CinemaServer\\obj\\",
+      "projectPath": "E:\\VS\\RiderProjects\\CinemaHub\\CinemaServer\\CinemaServer.csproj",
+      "packagesPath": "C:\\Users\\пк\\.nuget\\packages\\",
+      "outputPath": "E:\\VS\\RiderProjects\\CinemaHub\\CinemaServer\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Test\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\пк\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -28,7 +34,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -67,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
