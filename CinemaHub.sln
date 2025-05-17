@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaServer", "CinemaServer\CinemaServer.csproj", "{EFD0123A-8C09-4C49-BEAD-864A8F7FDBA7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaWPF", "CinemaWPF\CinemaWPF.csproj", "{D822D579-6BD5-4271-9068-B2E4BF3CA828}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{2AECD3FA-6A50-4AB6-8718-1F5D98C6522E}"
@@ -12,16 +10,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{FB9738D5-E138-40C2-96F3-7CFFC5E762B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaServer", "CinemaServer\CinemaServer.csproj", "{DC7BA780-88DB-472A-B299-202863D75618}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EFD0123A-8C09-4C49-BEAD-864A8F7FDBA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFD0123A-8C09-4C49-BEAD-864A8F7FDBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFD0123A-8C09-4C49-BEAD-864A8F7FDBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFD0123A-8C09-4C49-BEAD-864A8F7FDBA7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D822D579-6BD5-4271-9068-B2E4BF3CA828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D822D579-6BD5-4271-9068-B2E4BF3CA828}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D822D579-6BD5-4271-9068-B2E4BF3CA828}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,5 +38,9 @@ Global
 		{FB9738D5-E138-40C2-96F3-7CFFC5E762B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB9738D5-E138-40C2-96F3-7CFFC5E762B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB9738D5-E138-40C2-96F3-7CFFC5E762B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC7BA780-88DB-472A-B299-202863D75618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7BA780-88DB-472A-B299-202863D75618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7BA780-88DB-472A-B299-202863D75618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7BA780-88DB-472A-B299-202863D75618}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
