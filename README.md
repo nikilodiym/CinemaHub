@@ -24,9 +24,11 @@
 
 ```
 ## 🔁 Варіант 2 — Через DynamicResource (для динамічної зміни стилів)
+📄 XAML
 ```xml
 <Button Style="{DynamicResource CinemaPrimaryButton}" Content="Dynamic Style" />
 ```
+💻 C#
 ```C#
 this.Resources["CinemaPrimaryButton"] = new Style(typeof(Button))
 {
