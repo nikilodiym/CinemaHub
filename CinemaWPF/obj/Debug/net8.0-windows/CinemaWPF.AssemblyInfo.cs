@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CinemaWPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19671d537c32923a195f5081ab4378f839d6fad0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18d0a7d5236f052598eebd630f30bceab0b39a8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("CinemaWPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CinemaWPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
