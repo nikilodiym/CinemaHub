@@ -15,16 +15,14 @@ public partial class AdminLoginView : UserControl
         string movieName = MovieNameInput.Text;
         string movieYear = MovieYearInput.Text;
 
-        if (string.IsNullOrEmpty(movieName)) // Fixed missing parenthesis
+        if (string.IsNullOrEmpty(movieName))
         {
             MessageBox.Show("Please enter a movie title!");
             return;
         }
 
-        // Add the movie to the database or list here
         MessageBox.Show($"Movie added: {movieName} ({movieYear})");
 
-        // Clear the input fields after adding
         MovieNameInput.Clear();
         MovieYearInput.Clear();
     }
