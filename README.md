@@ -21,3 +21,15 @@
         <!-- Наш код -->
     </Grid>
 </Window>
+
+```
+## 🔁 Варіант 2 — Через DynamicResource (для динамічної зміни стилів)
+```xml
+<Button Style="{DynamicResource CinemaPrimaryButton}" Content="Dynamic Style" />
+```
+```C#
+this.Resources["CinemaPrimaryButton"] = new Style(typeof(Button))
+{
+    // нові параметри стилю
+};
+
