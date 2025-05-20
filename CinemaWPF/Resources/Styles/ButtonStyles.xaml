@@ -6,7 +6,62 @@
              xmlns:local="clr-namespace:CinemaWPF.Resources.Styles"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <Style x:Key="CinemaButtonBase" TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0 0 0 15"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="5"
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CinemaPrimaryButton" BasedOn="{StaticResource CinemaButtonBase}" TargetType="Button">
+            <Setter Property="Background" Value="#FF4CAF50"/>
+        </Style>
+
+        <Style x:Key="CinemaSecondaryButton" BasedOn="{StaticResource CinemaButtonBase}" TargetType="Button">
+            <Setter Property="Background" Value="#FF2196F3"/>
+        </Style>
+
+        <Style x:Key="CinemaDangerButton" BasedOn="{StaticResource CinemaButtonBase}" TargetType="Button">
+            <Setter Property="Background" Value="#FFf44336"/>
+        </Style>
+
+        <Style x:Key="CinemaAccentButton" BasedOn="{StaticResource CinemaButtonBase}" TargetType="Button">
+            <Setter Property="Background" Value="#FFFFD700"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center">
+            <Button Content="Primary Button" Style="{StaticResource CinemaPrimaryButton}"/>
+            <Button Content="Secondary Button" Style="{StaticResource CinemaSecondaryButton}"/>
+            <Button Content="Danger Button" Style="{StaticResource CinemaDangerButton}"/>
+            <Button Content="Accent Button" Style="{StaticResource CinemaAccentButton}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

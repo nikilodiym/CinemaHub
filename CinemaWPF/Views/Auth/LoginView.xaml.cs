@@ -27,5 +27,4 @@ public partial class LoginView : UserControl
 
         Window.GetWindow(this)?.Close();
     }
-
 }

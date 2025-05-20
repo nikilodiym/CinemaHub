@@ -5,8 +5,68 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:CinemaWPF.Resources.Styles"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style x:Key="CinemaTextBase" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+
+        <Style x:Key="CinemaHeader1" BasedOn="{StaticResource CinemaTextBase}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#FFFFD700"/>
+            <Setter Property="Margin" Value="0 0 0 20"/>
+        </Style>
+
+        <Style x:Key="CinemaHeader2" BasedOn="{StaticResource CinemaTextBase}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0 0 0 15"/>
+        </Style>
+
+        <Style x:Key="CinemaHeader3" BasedOn="{StaticResource CinemaTextBase}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Margin" Value="0 0 0 10"/>
+        </Style>
+
+        <Style x:Key="CinemaTextNormal" BasedOn="{StaticResource CinemaTextBase}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0 0 0 8"/>
+        </Style>
+
+        <Style x:Key="CinemaTextSmall" BasedOn="{StaticResource CinemaTextBase}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#CCFFFFFF"/>
+            <Setter Property="Margin" Value="0 0 0 5"/>
+        </Style>
+
+        <Style x:Key="CinemaTextAccent" BasedOn="{StaticResource CinemaTextBase}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#FF4CAF50"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style x:Key="CinemaTextWarning" BasedOn="{StaticResource CinemaTextBase}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#FFF44336"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid Background="#FF1A1A1A">
+        <StackPanel VerticalAlignment="Center" Margin="20">
+            <TextBlock Style="{StaticResource CinemaHeader1}" Text="Header 1"/>
+            <TextBlock Style="{StaticResource CinemaHeader2}" Text="Header 2"/>
+            <TextBlock Style="{StaticResource CinemaHeader3}" Text="Header 3"/>
+            <TextBlock Style="{StaticResource CinemaTextNormal}" Text="Normal text block with some sample content"/>
+            <TextBlock Style="{StaticResource CinemaTextSmall}" Text="Small secondary text"/>
+            <TextBlock Style="{StaticResource CinemaTextAccent}" Text="Accent text (e.g. success message)"/>
+            <TextBlock Style="{StaticResource CinemaTextWarning}" Text="Warning text (e.g. error message)"/>
+        </StackPanel>
     </Grid>
 </UserControl>
