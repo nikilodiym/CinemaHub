@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CinemaServer\CinemaServer.csproj" />
+      <ProjectReference Include="..\Core\Core.csproj" />
+    </ItemGroup>
+
 </Project>
