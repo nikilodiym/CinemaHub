@@ -1,6 +1,8 @@
 ﻿namespace Services.Interfaces;
 
-public class BookingService
+public interface IBookingService
 {
-    
+    bool CreateBooking(int userId, int movieId, DateTime bookingDate);
+    bool CancelBooking(int bookingId);
+    // IEnumerable<BookingDto> GetBookingsByUser(int userId);
 }
