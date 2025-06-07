@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CinemaServer\CinemaServer.csproj" />
+      <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
     </ItemGroup>
 
 </Project>
