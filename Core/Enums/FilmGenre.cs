@@ -1,6 +1,15 @@
 ﻿namespace Core.Enums;
 
-public class FilmGenre
+public enum FilmGenre
 {
-    
+    Action,
+    Comedy,
+    Drama,
+    Horror,
+    SciFi,
+    Romance,
+    Thriller,
+    Documentary,
+    Animation,
+    Fantasy
 }
