@@ -1,4 +1,4 @@
-﻿namespace ViewModels.Auth;
+﻿namespace CinemaWPF.ViewModels.Auth;
 
 public class RegisterViewModel
 {
