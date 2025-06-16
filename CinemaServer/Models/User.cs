@@ -1,18 +1,19 @@
-using Postgrest.Attributes;
-using Postgrest.Models;
 using System;
+using Supabase.Postgrest.Attributes;
+using Supabase.Postgrest.Models;
 
-namespace CinemaWPF.Core.Models;
-
-[Table("User")]
-public class User : BaseModel
+namespace CinemaServer.Models
 {
-    [PrimaryKey("UserId")]
-    public Guid UserId { get; set; }
-    [Column("UserName")]
-    public string UserName { get; set; } = string.Empty;
-    [Column("UserPassword_hash")]
-    public string UserPassword_hash { get; set; } = string.Empty;
-    [Column("Email")]
-    public string Email { get; set; } = string.Empty;
+    [Table("User")]
+    public class User : BaseModel
+    {
+        [PrimaryKey("UserId")]
+        public Guid UserId { get; set; }
+        [Column("UserName")]
+        public string UserName { get; set; } = string.Empty;
+        [Column("UserPasswordHash")]
+        public string UserPasswordHash { get; set; } = string.Empty;
+        [Column("Email")]
+        public string Email { get; set; } = string.Empty;
+    }
 }
