@@ -7,6 +7,6 @@ public partial class AdminWindow : Window
     public AdminWindow()
     {
         InitializeComponent();
-        this.Content = new AdminLoginView();
+        //this.Content = new AdminLoginView();
     }
 }
