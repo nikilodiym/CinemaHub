@@ -24,6 +24,7 @@
                 <ListBoxItem Content="Хобіт"/>
                 <ListBoxItem Content="Володар кілець: Повернення короля"/>
                 
+                
             </ListBox>
 
             <Button x:Name="AddFilmButton"
