@@ -1,6 +1,9 @@
 ﻿namespace Core.Enums;
 
-public class UserRole
+public enum UserRole
 {
-    
+    Admin,
+    Moderator,
+    User,
+    Guest
 }

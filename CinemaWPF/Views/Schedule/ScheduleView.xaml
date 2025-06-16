@@ -5,8 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:CinemaWPF.Views.Schedule"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="600">
     <Grid>
-        
+        <StackPanel Margin="10">
+            <TextBlock Text="Schedule Management"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Margin="0 0 0 10"/>
+
+            <DataGrid x:Name="ScheduleDataGrid"
+                      AutoGenerateColumns="False"
+                      Height="300"
+                      Margin="0 0 0 10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Schedule ID" Binding="{Binding ScheduleId}" Width="100"/>
+                    <DataGridTextColumn Header="Film Title" Binding="{Binding Film.Title}" Width="200"/>
+                    <DataGridTextColumn Header="Screening Time" Binding="{Binding ScreeningTime}" Width="150"/>
+                    <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="150"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button x:Name="AddScheduleButton"
+                    Content="Add New Schedule"
+                    Background="#FF4CAF50"
+                    Foreground="White"
+                    Width="150"
+                    Height="35"
+                    HorizontalAlignment="Left"
+                    Click="AddScheduleButton_Click"/>
+        </StackPanel>
     </Grid>
 </UserControl>

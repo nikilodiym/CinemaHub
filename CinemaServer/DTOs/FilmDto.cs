@@ -1,6 +1,6 @@
-﻿namespace Services.Models;
+﻿namespace Services.DTOs;
 
-public class Film
+public class FilmDto
 {
     public int FilmId { get; set; }
     public string Title { get; set; }

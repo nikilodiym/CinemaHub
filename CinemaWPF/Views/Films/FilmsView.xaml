@@ -7,6 +7,31 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        
+        <StackPanel Margin="10">
+            <TextBlock Text="Films"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Margin="0 0 0 10"/>
+
+            <ListBox x:Name="FilmsListBox"
+                     Width="250"
+                     Height="150"
+                     Margin="0 0 0 10"
+                     HorizontalAlignment="Left">
+                <!-- Example items -->
+                <ListBoxItem Content="Film 1"/>
+                <ListBoxItem Content="Film 2"/>
+                <ListBoxItem Content="Film 3"/>
+            </ListBox>
+
+            <Button x:Name="AddFilmButton"
+                    Content="Add New Film"
+                    Background="#FF4CAF50"
+                    Foreground="White"
+                    Width="150"
+                    Height="35"
+                    HorizontalAlignment="Left"
+                    Click="AddFilmButton_Click"/>
+        </StackPanel>
     </Grid>
 </UserControl>
