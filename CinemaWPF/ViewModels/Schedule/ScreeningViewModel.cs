@@ -1,4 +1,4 @@
-﻿namespace ViewModels.Schedule;
+namespace CinemaWPF.ViewModels.Schedule;
 
 public class ScreeningViewModel
 {

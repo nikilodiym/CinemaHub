@@ -1,14 +1,37 @@
-﻿namespace Services.Implementations;
+﻿using Core.Helpers;
+using Services.Interfaces;
+using Supabase.Gotrue;
+using System.Threading.Tasks;
 
-public class AuthService
+namespace Services.Implementations;
+
+public class AuthService : IAuthService
 {
-    public bool Register(string username, string password, string email)
+    private readonly IAuthDataProvider _authDataProvider;
+    private readonly PasswordHasher _passwordHasher;
+
+    public AuthService(IAuthDataProvider authDataProvider)
     {
-        return true; 
+        _authDataProvider = authDataProvider;
+        _passwordHasher = new PasswordHasher();
     }
 
-    public string Login(string username, string password)
+    public async Task<bool> RegisterAsync(string username, string password, string email)
     {
-        return "token"; 
+        if (await _authDataProvider.UserExistsAsync(username))
+            return false;
+        var passwordHash = _passwordHasher.HashPassword(password);
+        return await _authDataProvider.CreateUserAsync(username, passwordHash, email);
+    }
+
+    public async Task<string?> LoginAsync(string username, string password)
+    {
+        var user = await _authDataProvider.GetUserByUsernameAsync(username);
+        if (user == null)
+            return null;
+        if (!_passwordHasher.VerifyPassword(password, user.PasswordHash))
+            return null;
+        return user.UserId;
     }
 }
+
