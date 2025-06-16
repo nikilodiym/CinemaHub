@@ -1,7 +1,6 @@
 # Rider specific
 .idea/
 .vs/
-secrets.json
 *.sln.iml
 *.env
 global.json
