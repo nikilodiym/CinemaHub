@@ -19,9 +19,11 @@
                      Margin="0 0 0 10"
                      HorizontalAlignment="Left">
                 <!-- Example items -->
-                <ListBoxItem Content="Film 1"/>
-                <ListBoxItem Content="Film 2"/>
-                <ListBoxItem Content="Film 3"/>
+                <ListBoxItem Content="Тихоокеанський Рубіж"/>
+                <ListBoxItem Content="Залізна людина 3"/>
+                <ListBoxItem Content="Хобіт"/>
+                <ListBoxItem Content="Володар кілець: Повернення короля"/>
+                
             </ListBox>
 
             <Button x:Name="AddFilmButton"
