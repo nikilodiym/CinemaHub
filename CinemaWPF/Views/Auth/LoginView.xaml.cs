@@ -13,7 +13,7 @@ public partial class LoginView : UserControl
     
     private void UserButton_Click(object sender, RoutedEventArgs e)
     {
-        MessageBox.Show("Welcome to user mode! Movies loading...");
+        //MessageBox.Show("Welcome to user mode! Movies loading...");
         
         var userWindow = new UserWindow();
         userWindow.Show();
@@ -23,9 +23,12 @@ public partial class LoginView : UserControl
 
     private void AdminButton_Click(object sender, RoutedEventArgs e)
     {
-        var adminWindow = new AdminWindow();
-        adminWindow.Show();
-
-        Window.GetWindow(this)?.Close();
+        var filmsView = new CinemaWPF.Views.Films.FilmsView();
+    
+        var currentWindow = Window.GetWindow(this);
+        if (currentWindow != null)
+        {
+            currentWindow.Content = filmsView;
+        }
     }
 }
