@@ -13,7 +13,15 @@ public partial class FilmsView : UserControl
 
     private void AddFilmButton_Click(object sender, RoutedEventArgs e)
     {
-        MessageBox.Show("Add new film functionality triggered!");
-        // Add logic for adding a new film here
+        //MessageBox.Show("Add new film functionality triggered!");
+
+        var filmDetailsView = new FilmDetailsView();
+
+        // Заміна вмісту поточного вікна на FilmDetailsView
+        var currentWindow = Window.GetWindow(this);
+        if (currentWindow != null)
+        {
+            currentWindow.Content = filmDetailsView;
+        }
     }
 }

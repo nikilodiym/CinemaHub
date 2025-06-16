@@ -15,5 +15,6 @@ public partial class FilmDetailsView : UserControl
     {
         MessageBox.Show("Film details saved!");
         // Add logic for saving film details here
+        
     }
 }
