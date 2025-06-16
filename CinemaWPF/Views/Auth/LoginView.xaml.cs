@@ -15,6 +15,7 @@ public partial class LoginView : UserControl
     {
         MessageBox.Show("Welcome to user mode! Movies loading...");
         
+        
         var userWindow = new UserWindow();
         userWindow.Show();
 
