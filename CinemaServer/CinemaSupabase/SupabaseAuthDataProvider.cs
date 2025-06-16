@@ -21,6 +21,30 @@ public class SupabaseAuthDataProvider : IAuthDataProvider
         var users = await _supabaseService.supabaseClient.From<User>().Filter(x => x.UserName, Constants.Operator.Equals, username).Get();
         return users.Models.Count > 0;
     }
+    
+    public async Task<bool> AddFilmAsync(Movie movie)
+    {
+        try
+        {
+            var response = await _supabaseService.supabaseClient.From<Movie>().Insert(movie);
+            if (response.ResponseMessage != null && response.ResponseMessage.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                // Log the error response
+                var errorContent = await response.ResponseMessage.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error: {errorContent}");
+                return false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Exception: {ex.Message}");
+            throw;
+        }
+    }
 
     public async Task<bool> CreateUserAsync(string username, string passwordHash, string email)
     {
@@ -41,5 +65,10 @@ public class SupabaseAuthDataProvider : IAuthDataProvider
             PasswordHash = user.UserPasswordHash
         };
     }
-}
 
+    public async Task<List<Movie>> GetAllFilmsAsync()
+    {
+        var response = await _supabaseService.supabaseClient.From<Movie>().Get();
+        return response.Models;
+    }
+}
