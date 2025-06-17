@@ -20,6 +20,7 @@ public class AuthController : ControllerBase
         _jwtTokenService = jwtTokenService;
         _authService = authService;
     }
+    
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequestDto request)
