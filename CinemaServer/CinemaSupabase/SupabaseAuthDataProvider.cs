@@ -33,7 +33,6 @@ public class SupabaseAuthDataProvider : IAuthDataProvider
             }
             else
             {
-                // Log the error response
                 var errorContent = await response.ResponseMessage.Content.ReadAsStringAsync();
                 Console.WriteLine($"Error: {errorContent}");
                 return false;
