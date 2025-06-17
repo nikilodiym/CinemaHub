@@ -10,7 +10,6 @@ namespace CinemaWPF.Views.Auth;
 
 public partial class RegisterWindowView : UserControl
 {
-    private static readonly HttpClient _httpClient = new HttpClient();
     public RegisterWindowView()
     {
         InitializeComponent();
@@ -33,15 +32,14 @@ public partial class RegisterWindowView : UserControl
         try
         {
             var supabase = new Supabase.Client(
-                "https://your-project.supabase.co", 
-                "public-anon-key" 
+                "https://nvtstozbbftyzpnjmnyz.supabase.co", 
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im52dHN0b3piYmZ0eXpwbmptbnl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc0NzM4NzcsImV4cCI6MjA2MzA0OTg3N30.etGp1-etVKGboYf8s00Nq4T5rM_sxjJxILGT_0zzUxo" 
             );
             var session = await supabase.Auth.SignUp(username, password);
             if (session != null && session.User != null)
             {
                 var jwt = session.AccessToken;
                 MessageBox.Show("Реєстрація успішна! Тепер увійдіть.");
-                // Переключення на LoginView
                 var mainWindow = Window.GetWindow(this);
                 if (mainWindow != null)
                 {
