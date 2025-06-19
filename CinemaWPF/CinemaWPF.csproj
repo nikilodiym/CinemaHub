@@ -21,8 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="MaterialDesignColors" Version="5.2.1" />
-      <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+      <PackageReference Include="MaterialDesignColors" Version="5.2.2-ci998" />
+      <PackageReference Include="MaterialDesignThemes" Version="5.2.2-ci998" />
       <PackageReference Include="MaterialDesignThemes.Wpf" Version="1.0.1" />
     </ItemGroup>
 
