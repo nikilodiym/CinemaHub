@@ -6,6 +6,7 @@ namespace CinemaWPF.Models
     {
         public string? username { get; set; }
         public string? userpassword_hash { get; set; }
+        
     }
 }
 
