@@ -6,14 +6,14 @@ using Microsoft.Win32;
 using CinemaServer.CinemaSupabase;
 using CinemaWPF.Core.Models;
 using CinemaServer.Models;
-
+using Movie = Core.Models.Movie;
 
 namespace CinemaWPF.Views.Films
 {
     public partial class FilmDetailsView : UserControl
     {
         private readonly SupabaseAuthDataProvider _dataProvider;
-        private string _selectedImagePath;
+        private string? _selectedImagePath;
 
         public FilmDetailsView()
         {
@@ -26,37 +26,46 @@ namespace CinemaWPF.Views.Films
             var title = FilmTitleTextBox.Text;
             var description = FilmDescriptionTextBox.Text;
             var releaseDate = FilmReleaseDatePicker.SelectedDate;
+            var genre = GenreTextBox.Text;
+            var rating = GetSelectedRating();
 
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) || releaseDate == null)
+            if (string.IsNullOrWhiteSpace(title) || 
+                string.IsNullOrWhiteSpace(description) || 
+                string.IsNullOrWhiteSpace(genre) ||
+                releaseDate == null)
             {
-                MessageBox.Show("Please fill in all fields.");
+                MessageBox.Show("Please fill in all required fields (Title, Genre, Description, Release Date).");
                 return;
             }
 
-            var film = new Movie
+            var movie = new Movie()
             {
                 Title = title,
                 Description = description,
                 ReleaseDate = releaseDate.Value,
-                ImagePath = _selectedImagePath
+
             };
 
-            var success = await _dataProvider.AddFilmAsync(film);
-
-            if (success)
+            try
             {
-                MessageBox.Show("Film added successfully!");
-
-                var filmsView = new FilmsView();
-                var currentWindow = Window.GetWindow(this);
-                if (currentWindow != null)
+                // Use AddFilmAsync instead of AddMovieAsync
+                var success = await _dataProvider.AddFilmAsync(movie);
+                
+                if (success)
                 {
-                    currentWindow.Content = filmsView;
+                    MessageBox.Show("Film added successfully!");
+                    ClearFields();
+                    NavigateToFilmsView();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add film. Please try again.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Failed to add film. Please try again.");
+                MessageBox.Show($"Error adding film: {ex.Message}");
+                Console.WriteLine($"Exception details: {ex}");
             }
         }
 
@@ -64,20 +73,70 @@ namespace CinemaWPF.Views.Films
         {
             var openFileDialog = new OpenFileDialog
             {
-                Filter = "Image files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
+                Filter = "Image files (*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
+                Title = "Select Film Cover Image"
             };
 
             if (openFileDialog.ShowDialog() == true)
             {
                 _selectedImagePath = openFileDialog.FileName;
 
-                var bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(_selectedImagePath);
-                bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                bitmap.EndInit();
+                try
+                {
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(_selectedImagePath);
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
 
-                PreviewImage.Source = bitmap;
+                    PreviewImage.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading image: {ex.Message}");
+                    _selectedImagePath = null;
+                }
+            }
+        }
+
+        private int GetSelectedRating()
+        {
+            if (RatingComboBox.SelectedItem is string selectedRating)
+            {
+                // Extract number from strings like "1 ⭐️", "2 ⭐️⭐️", etc.
+                if (selectedRating.StartsWith("1")) return 1;
+                if (selectedRating.StartsWith("2")) return 2;
+                if (selectedRating.StartsWith("3")) return 3;
+                if (selectedRating.StartsWith("4")) return 4;
+                if (selectedRating.StartsWith("5")) return 5;
+            }
+            return 0; // Default rating
+        }
+        private void ClearFields()
+        {
+            FilmTitleTextBox.Text = string.Empty;
+            GenreTextBox.Text = string.Empty;
+            FilmDescriptionTextBox.Text = string.Empty;
+            FilmReleaseDatePicker.SelectedDate = null;
+            RatingComboBox.SelectedIndex = -1;
+            PreviewImage.Source = null;
+            _selectedImagePath = null;
+        }
+
+        private void NavigateToFilmsView()
+        {
+            try
+            {
+                var filmsView = new FilmsView();
+                var currentWindow = Window.GetWindow(this);
+                if (currentWindow != null)
+                {
+                    currentWindow.Content = filmsView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error navigating to films view: {ex.Message}");
             }
         }
     }
