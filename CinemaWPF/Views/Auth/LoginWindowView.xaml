@@ -6,17 +6,73 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:CinemaWPF.Views.Auth"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <TextBox x:Name="UsernameTextBox" materialDesign:HintAssist.Hint="Нікнейм" Grid.Row="0" Margin="0,0,0,10" />
-        <PasswordBox x:Name="PasswordBox" materialDesign:HintAssist.Hint="Пароль" Grid.Row="1" Margin="0,0,0,10" />
-        <Button x:Name="LoginButton" Grid.Row="2" Content="Увійти" Margin="0,0,0,10" Click="LoginButton_Click"/>
-        <Button x:Name="RegisterButton" Grid.Row="3" Content="Зареєструватися" Click="RegisterButton_Click"/>
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid Margin="0">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FFFBD3" Offset="0"/>
+                <GradientStop Color="#FFEAA7" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Background="White"
+                CornerRadius="15"
+                Padding="30"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="300">
+
+            <StackPanel>
+                <TextBlock Text="🔐 Sign In"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+
+                <!-- Email -->
+                <TextBlock Text="Email:" FontSize="14" Foreground="Black"/>
+                <TextBox x:Name="UsernameTextBox"
+                         Height="35"
+                         FontSize="14"
+                         Background="#FFFDFDFD"
+                         BorderBrush="#FFCCCCCC"
+                         BorderThickness="1"
+                         Padding="8"
+                         Margin="0,5,0,15"/>
+
+                <!-- Password -->
+                <TextBlock Text="Password:" FontSize="14" Foreground="Black"/>
+                <PasswordBox x:Name="PasswordBox"
+                             Height="35"
+                             FontSize="14"
+                             Background="#FFFDFDFD"
+                             BorderBrush="#FFCCCCCC"
+                             BorderThickness="1"
+                             Padding="8"
+                             Margin="0,5,0,20"/>
+
+                <!-- Login Button -->
+                <Button Content="➡ Увійти"
+                        Click="LoginButton_Click"
+                        Height="40"
+                        x:Name="LoginButton"
+                        Background="#FF2196F3"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="15"
+                        BorderThickness="0"
+                        Cursor="Hand"/>
+
+                <TextBlock x:Name="RegisterButton" TextAlignment="Center" Margin="0,25,0,0">
+                    <Run Text="Не маєш акаунта? " Foreground="Gray"/>
+                    <Run Text="Зареєструйся"
+                         Foreground="#FF2196F3"
+                         TextDecorations="Underline"
+                         Cursor="Hand"
+                         MouseDown="RegisterButton_Click"/>
+                </TextBlock>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>
+
+

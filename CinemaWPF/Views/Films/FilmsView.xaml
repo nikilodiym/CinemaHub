@@ -5,36 +5,60 @@
               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
               xmlns:local="clr-namespace:CinemaWPF.Views.Films"
               mc:Ignorable="d"
-              d:DesignHeight="300" d:DesignWidth="300">
+              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-        <StackPanel Margin="10">
-            <TextBlock Text="Films"
-                       FontSize="20"
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFFAA61A" Offset="0.0"/>
+                <GradientStop Color="#FFFFD580" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+            <TextBlock Text="🎬 Movie Collection"
+                       FontSize="32"
                        FontWeight="Bold"
-                       Margin="0 0 0 10"/>
+                       FontFamily="Segoe UI Semibold"
+                       Foreground="#2C2C2C"
+                       HorizontalAlignment="Center"
+                       Margin="0,30,0,10"/>
 
             <ListBox x:Name="FilmsListBox"
-                     Width="250"
-                     Height="150"
-                     Margin="0 0 0 10"
-                     HorizontalAlignment="Left">
-                <!-- Example items -->
-                <ListBoxItem Content="Тихоокеанський Рубіж"/>
-                <ListBoxItem Content="Залізна людина 3"/>
-                <ListBoxItem Content="Хобіт"/>
-                
-                
-                
+                     Width="400"
+                     Height="230"
+                     Margin="0,90,0,90"
+                     HorizontalAlignment="Center"
+                     Background="#FFFDFDFD"
+                     BorderBrush="#FFE0E0E0"
+                     BorderThickness="2"
+                     FontSize="18"
+                     FontFamily="Segoe UI"
+                     FontWeight="SemiBold"
+                     Padding="10"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBoxItem Content="📽 Тихоокеанський Рубіж"/>
+                <ListBoxItem Content="🦾 Залізна людина 3"/>
+                <ListBoxItem Content="🧙 Хобіт"/>
             </ListBox>
 
-            <Button x:Name="AddFilmButton"
-                    Content="Add New Film"
-                    Background="#FF4CAF50"
+            <Button Content="➕ Add New Film"
+                    x:Name="AddFilmButton"
+                    Width="220"
+                    Height="50"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,0,25"
+                    FontSize="18"
+                    FontFamily="Segoe UI Semibold"
+                    FontWeight="Bold"
+                    Background="#FF43A047"
                     Foreground="White"
-                    Width="150"
-                    Height="35"
-                    HorizontalAlignment="Left"
-                    Click="AddFilmButton_Click"/>
-        </StackPanel>
+                    BorderBrush="#FF2E7D32"
+                    BorderThickness="2"
+                    Cursor="Hand"
+                    Padding="5"
+                    Click="AddFilmButton_Click">
+                <Button.Effect>
+                    <DropShadowEffect ShadowDepth="2" Opacity="0.4" BlurRadius="5"/>
+                </Button.Effect>
+            </Button>
     </Grid>
 </UserControl>
