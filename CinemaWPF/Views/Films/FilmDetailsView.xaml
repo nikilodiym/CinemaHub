@@ -3,17 +3,116 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="400">
-    <Grid>
-        <StackPanel Margin="10">
-            <TextBlock Text="Add New Film" FontSize="20" FontWeight="Bold" Margin="0 0 0 10"/>
+             d:DesignHeight="700" d:DesignWidth="900">
+    
+    <Grid Margin="0">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFFAA61A" Offset="0.0"/>
+                <GradientStop Color="#FFFFD580" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
-            <TextBox x:Name="FilmTitleTextBox" Margin="0 0 0 10"/>
-            <TextBox x:Name="FilmDescriptionTextBox" Margin="0 0 0 10"/>
-            <DatePicker x:Name="FilmReleaseDatePicker" Margin="0 0 0 10"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
 
-            <Button Content="Save Film" Width="150" Height="35" Background="#FF4CAF50" Foreground="White" Click="SaveFilmButton_Click"/>
+        <!-- Вся форма -->
+        <StackPanel Grid.Column="0" Margin="20" VerticalAlignment="Top" Width="400">
+            <TextBlock Text="🎞 Add New Film" FontSize="28" FontWeight="Bold" Foreground="Black" Margin="0,0,0,20"/>
+
+            <!-- Назва -->
+            <TextBlock Text="Title:" FontSize="16" Foreground="Black"/>
+            <TextBox x:Name="FilmTitleTextBox" Margin="0,5,0,15" Height="30"/>
+
+            <!-- Жанр -->
+            <TextBlock Text="Genre:" FontSize="16" Foreground="Black"/>
+            <TextBox x:Name="GenreTextBox" Margin="0,5,0,15" Height="30"/>
+
+            <!-- Опис -->
+            <TextBlock Text="Description:" FontSize="16" Foreground="Black"/>
+            <TextBox x:Name="FilmDescriptionTextBox" Margin="0,5,0,15" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+
+            <!-- Рейтинг -->
+            <TextBlock Text="Rating (Stars):" FontSize="16" Foreground="Black"/>
+            <ComboBox x:Name="RatingComboBox"
+                      Margin="0,5,0,15"
+                      Height="35"
+                      FontSize="16"
+                      Foreground="Black"
+                      Padding="5"
+                      Background="White"
+                      BorderBrush="#FFAAAAAA"
+                      BorderThickness="1">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" FontSize="16" Padding="5"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+                <system:String>1 ⭐</system:String>
+                <system:String>2 ⭐⭐</system:String>
+                <system:String>3 ⭐⭐⭐</system:String>
+                <system:String>4 ⭐⭐⭐⭐</system:String>
+                <system:String>5 ⭐⭐⭐⭐⭐</system:String>
+            </ComboBox>
+
+            <!-- Дата релізу -->
+            <TextBlock Text="Release Date:" FontSize="16" Foreground="Black"/>
+            <DatePicker x:Name="FilmReleaseDatePicker"
+                        Margin="0,5,0,15"
+                        Height="30"
+                        FontSize="14"
+                        Background="White"
+                        BorderBrush="#FFAAAAAA"
+                        BorderThickness="1" />
+
+            <!-- Кнопка вибору картинки -->
+            <Button Content="📂 Select Cover Image"
+                    Click="SelectImageButton_Click"
+                    Width="200"
+                    Height="40"
+                    Background="#FF2196F3"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Margin="0,10,0,0"
+                    Cursor="Hand"/>
+
+            <!-- Кнопка збереження -->
+            <Button Content="💾 Save Film"
+                    Click="SaveFilmButton_Click"
+                    Width="200"
+                    Height="45"
+                    Background="#FF4CAF50"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="16"
+                    Margin="0,20,0,0"
+                    Cursor="Hand"
+                    BorderBrush="#FF388E3C"
+                    BorderThickness="2">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="2" Opacity="0.4"/>
+                </Button.Effect>
+            </Button>
         </StackPanel>
+
+        <!-- Превʼю картинки -->
+        <Border Grid.Column="1"
+                Width="250"
+                Height="350"
+                Margin="30"
+                Background="White"
+                BorderBrush="#FFCCCCCC"
+                BorderThickness="2"
+                CornerRadius="10"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top">
+            <Image x:Name="PreviewImage" Stretch="UniformToFill" />
+        </Border>
     </Grid>
 </UserControl>

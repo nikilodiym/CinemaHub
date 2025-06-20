@@ -6,36 +6,99 @@
              xmlns:converters="clr-namespace:CinemaWPF.Converters"
              xmlns:local="clr-namespace:CinemaWPF.Views.Auth"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="900">
     <UserControl.Resources>
         <converters:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
         <converters:ZeroToVisibilityConverter x:Key="ZeroToVisibilityConverter" />
     </UserControl.Resources>
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="0,0,0,10">
-            <TextBox x:Name="UsernameTextBox" />
-            <TextBlock Text="Нікнейм" Foreground="Gray" Margin="5,2,0,0" IsHitTestVisible="False"
-                       VerticalAlignment="Center"
-                       Visibility="{Binding Text, ElementName=UsernameTextBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
-        </Grid>
-        <Grid Grid.Row="1" Margin="0,0,0,10">
-            <PasswordBox x:Name="PasswordBox" />
-            <TextBlock Text="Пароль" Foreground="Gray" Margin="5,2,0,0" IsHitTestVisible="False"
-                       VerticalAlignment="Center"
-                       Visibility="{Binding Path=Password.Length, ElementName=PasswordBox, Converter={StaticResource ZeroToVisibilityConverter}}"/>
-        </Grid>
-        <Grid Grid.Row="2" Margin="0,0,0,10">
-            <PasswordBox x:Name="ConfirmPasswordBox" />
-            <TextBlock Text="Підтвердження пароля" Foreground="Gray" Margin="5,2,0,0" IsHitTestVisible="False"
-                       VerticalAlignment="Center"
-                       Visibility="{Binding Path=Password.Length, ElementName=ConfirmPasswordBox, Converter={StaticResource ZeroToVisibilityConverter}}"/>
-        </Grid>
-        <Button x:Name="RegisterButton" Grid.Row="3" Content="Зареєструватися" Click="RegisterButton_Click"/>
+    <Grid Margin="0">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FFFBD3" Offset="0"/>
+                <GradientStop Color="#FFEAA7" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Background="White"
+                CornerRadius="15"
+                Padding="30"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="300">
+
+            <StackPanel>
+                <TextBlock Text="📝 Create Account"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20" />
+
+                <Grid Margin="0,0,0,15">
+                    <TextBox x:Name="UsernameTextBox"
+                             Background="#FFFDFDFD"
+                             Foreground="Black"
+                             Height="35"
+                             Padding="8"
+                             BorderBrush="#FFCCCCCC"
+                             BorderThickness="1"
+                             FontSize="14"
+                             />
+                    <TextBlock Text="Пошта"
+                               Foreground="Gray"
+                               Margin="10,2,0,0"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Center"
+                               Visibility="{Binding Text, ElementName=UsernameTextBox, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                </Grid>
+
+                <Grid Margin="0,0,0,15">
+                    <PasswordBox x:Name="PasswordBox"
+                                 Background="#FFFDFDFD"
+                                 Foreground="Black"
+                                 Height="35"
+                                 Padding="8"
+                                 BorderBrush="#FFCCCCCC"
+                                 BorderThickness="1"
+                                 FontSize="14"/>
+                    <TextBlock Text="Пароль"
+                               Foreground="Gray"
+                               Margin="10,2,0,0"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Center"
+                               Visibility="{Binding Path=Password.Length, ElementName=PasswordBox, Converter={StaticResource ZeroToVisibilityConverter}}"/>
+                </Grid>
+
+                <Grid Margin="0,0,0,25">
+                    <PasswordBox x:Name="ConfirmPasswordBox"
+                                 Background="#FFFDFDFD"
+                                 Foreground="Black"
+                                 Height="35"
+                                 Padding="8"
+                                 BorderBrush="#FFCCCCCC"
+                                 BorderThickness="1"
+                                 FontSize="14"/>
+                    <TextBlock Text="Підтвердження пароля"
+                               Foreground="Gray"
+                               Margin="10,2,0,0"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Center"
+                               Visibility="{Binding Path=Password.Length, ElementName=ConfirmPasswordBox, Converter={StaticResource ZeroToVisibilityConverter}}"/>
+                </Grid>
+
+                <Button x:Name="RegisterButton"
+                        Content="🚀 Зареєструватися"
+                        Height="40"
+                        FontWeight="Bold"
+                        FontSize="15"
+                        Background="#FF4CAF50"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="RegisterButton_Click">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="2" Opacity="0.4"/>
+                    </Button.Effect>
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

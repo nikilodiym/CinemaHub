@@ -16,5 +16,7 @@ namespace CinemaWPF.Core.Models
 
         [Column("releasedate")]
         public DateTime ReleaseDate { get; set; }
+
+        public string ImagePath { get; set; }
     }
 }
