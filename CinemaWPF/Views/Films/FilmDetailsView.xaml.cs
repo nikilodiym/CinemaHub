@@ -1,18 +1,16 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using CinemaServer.CinemaSupabase;
-using CinemaWPF.Core.Models;
+using CinemaServer.Services;
+using Core.Models;
+using Services.Implementations;
 
 namespace CinemaWPF.Views.Films;
 
 public partial class FilmDetailsView : UserControl
 {
-    private readonly SupabaseAuthDataProvider _dataProvider;
-
     public FilmDetailsView()
     {
         InitializeComponent();
-        _dataProvider = new SupabaseAuthDataProvider();
     }
 
     private async void SaveFilmButton_Click(object sender, RoutedEventArgs e)
@@ -34,22 +32,18 @@ public partial class FilmDetailsView : UserControl
             ReleaseDate = releaseDate.Value
         };
 
-        var success = await _dataProvider.AddFilmAsync(film);
-
-        if (success)
+        var movieService = new MovieService();
+        try
         {
+            await movieService.AddFilmAsync(film);
             MessageBox.Show("Film added successfully!");
-
-            var filmsView = new FilmsView();
-            var currentWindow = Window.GetWindow(this);
-            if (currentWindow != null)
-            {
-                currentWindow.Content = filmsView;
-            }
+            // Оновлення UI або очищення полів за потреби
         }
-        else
+        catch
         {
-            MessageBox.Show("Failed to add film. Please try again.");
+            MessageBox.Show("Error adding film.");
         }
     }
 }
+
+

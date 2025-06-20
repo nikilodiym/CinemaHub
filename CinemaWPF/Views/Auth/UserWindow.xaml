@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListView ItemsSource="{Binding Movies}" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Назва" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                    <GridViewColumn Header="Опис" DisplayMemberBinding="{Binding Description}" Width="400"/>
+                    <GridViewColumn Header="Дата релізу" DisplayMemberBinding="{Binding ReleaseDate}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
+

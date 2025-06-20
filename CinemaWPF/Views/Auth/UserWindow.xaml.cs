@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CinemaWPF.ViewModels.Films;
 
 namespace CinemaWPF.Views.Auth;
 
@@ -7,6 +8,7 @@ public partial class UserWindow : Window
     public UserWindow()
     {
         InitializeComponent();
-        this.Content = new LoginView();
+        DataContext = new UserFilmsViewModel();
     }
 }
+
