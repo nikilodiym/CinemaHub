@@ -8,4 +8,3 @@ namespace CinemaWPF.Models
         public string? userpassword_hash { get; set; }
     }
 }
-
