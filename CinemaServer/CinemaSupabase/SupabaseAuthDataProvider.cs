@@ -2,8 +2,8 @@ using System.Threading.Tasks;
 using Services.Interfaces;
 using CinemaServer.CinemaSupabase;
 using CinemaServer.Models;
-using CinemaWPF.Core.Models;
 using Supabase.Postgrest;
+using Core.Models;
 
 namespace CinemaServer.CinemaSupabase;
 

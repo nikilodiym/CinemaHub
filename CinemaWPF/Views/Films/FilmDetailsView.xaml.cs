@@ -5,10 +5,19 @@ using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 using CinemaServer.CinemaSupabase;
 using CinemaWPF.Core.Models;
+using CinemaServer.Services;
+using Core.Models;
+using Services.Implementations;
 
 namespace CinemaWPF.Views.Films
 {
     public partial class FilmDetailsView : UserControl
+    public FilmDetailsView()
+    {
+        InitializeComponent();
+    }
+
+    private async void SaveFilmButton_Click(object sender, RoutedEventArgs e)
     {
         private readonly SupabaseAuthDataProvider _dataProvider;
         private string _selectedImagePath;
@@ -77,6 +86,19 @@ namespace CinemaWPF.Views.Films
 
                 PreviewImage.Source = bitmap;
             }
+        }
+    }
+}
+        var movieService = new MovieService();
+        try
+        {
+            await movieService.AddFilmAsync(film);
+            MessageBox.Show("Film added successfully!");
+            // Оновлення UI або очищення полів за потреби
+        }
+        catch
+        {
+            MessageBox.Show("Error adding film.");
         }
     }
 }
