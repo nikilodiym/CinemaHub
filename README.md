@@ -62,3 +62,19 @@ CinemaHub/
 │       ├── User.cs
 │       └── Ticket.cs
 └── README.md
+
+---
+## 🛠️ Technologies Used
+- C#
+- WPF (Windows Presentation Foundation)
+- MVVM Pattern
+- XAML UI Design
+
+## 🚧 Known Issues
+- Payment gateway integration is currently simulated.
+- Admin features are limited to local database only.
+
+## 🌟 Future Plans
+- Add movie trailers and reviews.
+- Implement real payment processing via Stripe or PayPal API.
+- Deploy as a standalone Windows executable installer.
