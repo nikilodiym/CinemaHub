@@ -63,7 +63,6 @@ CinemaHub/
 │       ├── User.cs
 │       └── Ticket.cs
 └── README.md 
-'''
 
 ---
 ## 🛠️ Technologies Used
