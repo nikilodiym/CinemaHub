@@ -35,7 +35,7 @@ CinemaHub is a powerful WPF application for cinema management. It allows users t
 
 ---
 ## 📂 Project Structure
-''' bash
+```bash
 CinemaHub/
 ├── CinemaHub.sln
 ├── CinemaWPF/
@@ -62,7 +62,8 @@ CinemaHub/
 │       ├── Movie.cs
 │       ├── User.cs
 │       └── Ticket.cs
-└── README.md 
+└── README.md
+```
 
 ---
 ## 🛠️ Technologies Used
