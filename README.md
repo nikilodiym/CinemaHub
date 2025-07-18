@@ -29,4 +29,36 @@ CinemaHub is a powerful WPF application for cinema management. It allows users t
 1. Clone the repository:
    ```bash
    git clone https://github.com/nikilodiym/CinemaHub.git
-2. Open the solution in Visual Studio.
+2. Open the solution in Visual Studio/Rider.
+3. Restore NuGet packages if prompted.
+4. Build and run the project.
+
+---
+## 📂 Project Structure
+CinemaHub/
+├── CinemaHub.sln
+├── CinemaWPF/
+│   ├── App.xaml
+│   ├── MainWindow.xaml
+│   ├── Views/
+│   │   ├── Auth/
+│   │   │   ├── LoginWindowView.xaml
+│   │   │   └── RegisterWindowView.xaml
+│   │   ├── Admin/
+│   │   │   ├── AdminPanelView.xaml
+│   │   │   └── ManageMoviesView.xaml
+│   │   ├── User/
+│   │   │   ├── UserPanelView.xaml
+│   │   │   └── BookTicketsView.xaml
+│   │   └── Shared/
+│   │       └── HomeView.xaml
+│   ├── ViewModels/
+│   │   ├── Auth/
+│   │   ├── Admin/
+│   │   ├── User/
+│   │   └── Shared/
+│   └── Models/
+│       ├── Movie.cs
+│       ├── User.cs
+│       └── Ticket.cs
+└── README.md
