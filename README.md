@@ -2,9 +2,8 @@
 
 CinemaHub is a powerful WPF application for cinema management. It allows users to browse movies, book seats, make payments, and manage administrative functions seamlessly.
 
-<img width="690" height="305" alt="image" src="https://github.com/user-attachments/assets/1305ee7f-889f-4703-84fa-f597cc6625f2" /> <!-- Replace with real banner or screenshot -->
-
-
+<!-- Replace with real banner or screenshot -->
+<img width="512" height="288" alt="The Perks of Being A Wallflower" src="https://github.com/user-attachments/assets/a8838337-1322-4bab-9316-728976067680" />
 
 ---
 
